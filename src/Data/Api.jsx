@@ -23,6 +23,7 @@ function Api() {
       } finally {
         setLoading(false);
       }
+      
     };
 
     getProducts();
