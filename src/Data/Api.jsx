@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import instance from "../Api/axiosInstance";
+
 import toast, { Toaster } from "react-hot-toast";
 import { useTheme } from "../Context/ThemeContext";
-
+import instance from "../Api/axiosInstance";
 function Api() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
