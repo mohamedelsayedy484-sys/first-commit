@@ -1,32 +1,40 @@
+
+import { Link } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
+import "./FeatureCard.css";
 
-function FeatureCard({ products }) {
+function FeatureCard({ products, detailsLink = false }) {
+  const hasSale = products.sale != null;
+
   return (
-    <div className="card shadow-sm h-100">
-      <img
-        src={products.image}
-        className="card-img-top"
-        alt={products.name}
-        style={{ height: '220px', objectFit: 'cover' }}
-      />
+    <div className="card product-card h-100">
+      <div className="product-image">
+        {hasSale && <span className="sale-badge">SALE</span>}
+        <img src={products.image} alt={products.name} />
+      </div>
 
-      <div className="card-body">
+      <div className="card-body d-flex flex-column">
         <h5 className="card-title">{products.name}</h5>
 
-        {products.sale !== null ? (
-          <p className="card-text">
-            <del className="text-muted">${products.price}</del>{' '}
-            <strong className="text-danger">${products.sale}</strong>
-          </p>
+        <div className="product-price">
+          {hasSale && (
+            <span className="old-price">${products.price}</span>
+          )}
+
+          <strong className={hasSale ? "sale-price" : "normal-price"}>
+            ${hasSale ? products.sale : products.price}
+          </strong>
+        </div>
+
+        {detailsLink ? (
+          <Link className="buy-btn mt-auto" to={`/products/${products.id}`}>
+            View Details →
+          </Link>
         ) : (
-          <p className="card-text">${products.price}</p>
+          <button className="buy-btn mt-auto">
+            Buy Now <FaShoppingCart />
+          </button>
         )}
-          
-        <button className=" d-flex btn btn-dark justify-between   w-50">
-          Buy
-          <FaShoppingCart />
-         
-        </button>
       </div>
     </div>
   );

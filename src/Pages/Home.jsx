@@ -1,13 +1,12 @@
 
-
-
-
 import { Link } from "react-router-dom";
 import products from "../Data/products";
 import { useTheme } from "../Context/ThemeContext";
+import FeatureCard from "../Components/FeatureCard";
 
 function Home() {
-  const{darkMode}=useTheme();
+  const { darkMode } = useTheme();
+
   return (
     <div>
       {/* Hero Section */}
@@ -94,42 +93,8 @@ function Home() {
 
         <div className="row g-4">
           {products.slice(0, 6).map((product) => (
-            <div className="col-6 col-lg-2" key={product.id}>
-              <div className="card h-100 border shadow-sm">
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="card-img-top"
-                  style={{
-                    height: "190px",
-                    objectFit: "cover",
-                  }}
-                />
-
-                <div className="card-body d-flex flex-column">
-                  <h6 className="fw-bold">{product.name}</h6>
-
-                  <div className="mb-3">
-                    {product.sale !== null ? (
-                      <>
-                        <span className="fw-bold text-success me-2">
-                          ${product.sale}
-                        </span>
-
-                        <span className="text-secondary text-decoration-line-through">
-                          ${product.price}
-                        </span>
-                      </>
-                    ) : (
-                      <span className="fw-bold">${product.price}</span>
-                    )}
-                  </div>
-
-                  <Link to="/products" className="btn btn-dark mt-auto">
-                     Explore Products 
-                    </Link>
-                </div>
-              </div>
+            <div className="col-6 col-lg-4 col-xl-2" key={product.id}>
+              <FeatureCard products={product} />
             </div>
           ))}
         </div>
