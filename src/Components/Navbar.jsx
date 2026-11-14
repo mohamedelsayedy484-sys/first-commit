@@ -22,9 +22,9 @@ function Navbar() {
 
           {/* Logo */}
           <Link to="/home" className="brand-logo" onClick={closeMenu}>
-            <span className="brand-icon">M</span>
+            <span className="brand-icon">E</span>
             <span>
-              My<span className="brand-highlight">Website</span>
+              E-<span className="brand-highlight">Commerce</span>
               <small>TECH STORE</small>
             </span>
           </Link>
