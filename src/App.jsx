@@ -17,7 +17,7 @@ import RegisterForm from "./Pages/RegisterForm";
 import ProductDetails from "./Pages/ProductDetails";
 import Api from "./Data/Api";
 import { ThemeProvider } from "./Context/ThemeContext";
-
+import ApiProductDetails from "./Pages/ProductDetails";
 // Main Layout
 function Layout() {
   return (
@@ -48,6 +48,7 @@ const router = createBrowserRouter([
 
       { path: "api-products", element: <Api /> },
       { path: "*", element: <PageError /> },
+      {path:"/api-products/:id" ,element:<ApiProductDetails />}
     ],
   },
 ]);

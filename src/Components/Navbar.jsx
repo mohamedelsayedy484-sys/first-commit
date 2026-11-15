@@ -55,9 +55,7 @@ function Navbar() {
                 Online Products
               </NavLink>
 
-              <NavLink to="/about" className={navClass} onClick={closeMenu}>
-                About
-              </NavLink>
+             
 
               <NavLink to="/register" className={navClass} onClick={closeMenu}>
                 Login

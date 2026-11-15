@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import{Link} from "react-router-dom";
 
 import toast, { Toaster } from "react-hot-toast";
 import { useTheme } from "../Context/ThemeContext";
@@ -77,13 +78,13 @@ function Api() {
                   <p className="fw-bold fs-5 mt-auto">
                     ${product.price}
                   </p>
-
-                  <button
-                    className="btn btn-dark"
-                    onClick={() => setSelectedProduct(product)}
+                  <Link
+                    to={`/api-products/${product.id}`}
+                   className="btn btn-dark"
                   >
                     Details
-                  </button>
+                  </Link>
+                 
                 </div>
               </div>
             </div>
