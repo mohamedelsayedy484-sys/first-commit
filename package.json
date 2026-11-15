@@ -1,5 +1,6 @@
 {
-  "name": "car",
+   "short_name": "E-Commerce",
+  "name": "E-Commerce",
   "private": true,
   "version": "0.0.0",
   "type": "module",
